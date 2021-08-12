@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
     <head>
-        <title>App Name: The App</title>
+        <title>REVERSE: The App</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +24,7 @@
             <div class="container-fluid">
                 <img src="img/android-chrome-192x192.png" class="me-3" 
                     width="30" height="24">
-                <a class="navbar-brand main-font" href="/index.html">APP NAME</a>
+                <a class="navbar-brand main-font" href="/index.html">REVERSE</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -53,8 +53,38 @@
         </nav>
         <!--CONTENT-->
         <main class="flex-shrink-0">
-            <div class="container col-xxl-8 px-4 py-5">
-                
+            <div class="container col-xxl-8 px-4 py-5 mt-5">
+                <div class="row g-5 row-cols-1 row-cols-md-2">
+                    <div class="col border-end border-2">
+                        <h1 class="display-5 fw-bold lh-1 secondary-font">REVERSE: A JavaScript Challenge</h1>
+                        <h4 class="lead">
+                            REVERSE is a JavaScript challenge that displays the power of loops, functions, strings, and DOM manipulation.
+                        </h4>
+                        <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+                        <p>Enter a word, sentance or phrase. Press the button and the word, sentance or phrase will appear reveresed.</p>
+                    </div>
+                    <div class="col">
+                        <form class="row gy-2 gx-3">
+                            <div class="col">
+                                <h4>Enter a word, sentance or phrase:</h4>
+                                <input id="userInput" 
+                                       type="text"
+                                       class="form-control"
+                                       placeholder="'Hello World!'"
+                                       value=""
+                                       aria-label="User Input"
+                                >
+                            </div>
+                            <div class="col-12 d-flex justify-content-center">
+                                <button id="btnSubmit" type="button" class="btn btn-dark btn-lg mt-1">Reverse String</button>
+                            </div>
+                        </form>
+                        <h2 class="mt-5 border-bottom border-2">Results</h2>
+                        <div id="results" class="mt-1">
+                            <!-- RESULTS GO HERE -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         <!--FOOTER-->
@@ -97,6 +127,9 @@
         </script>
         <!--Custom JS-->
         <script src="/js/site.js"></script>
+        <script>
+            document.getElementById("btnSubmit").addEventListener("click", getString);
+        </script>
     </body>
 
 </html>
