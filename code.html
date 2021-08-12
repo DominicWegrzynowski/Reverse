@@ -50,7 +50,7 @@
                             <a class="nav-link active secondary-font" aria-current="page" href="/code.html">The Code</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link secondary-font" target="_blank" href="https://github.com/DominicWegrzynowski/ZeroTo100">Git Repo</a>
+                            <a class="nav-link secondary-font" target="_blank" href="https://github.com/DominicWegrzynowski/reverse">Git Repo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link secondary-font" target="_blank" href="https://dominicdeveloper.netlify.app/">About</a>
@@ -68,31 +68,49 @@
                     <div class="col-lg-8">
                         <pre class="line-numbers">
                             <code class="language-javascript">
-                                function firstName(string fullName) {
-                                    alert(
-                                        fullName
-                                    );
+                                function getString() {
+    
+                                    let userInput = document.getElementById("userInput").value;
+                                
+                                    if(typeof userInput === "string") {
+                                        let reversedString = reverseString(userInput);
+                                        displayString(reversedString);
+                                    } 
+                                    else {
+                                        alert("Error: Please enter a string");
+                                    }
                                 }
+                                
+                                function reverseString(string) {
+                                
+                                    const reversedString = string.split('').reverse().join('');
+                                    return reversedString;
 
-                                function middleName(string middleName) {
-                                    alert(
-                                        lastName
-                                    );
                                 }
-
-                                function lastName(string lastName) {
-                                    alert(
-                                        lastName
-                                    );
+                                
+                                function displayString(reversedString) {
+                                
+                                    let templateRow = "";
+                                    //note: the actual source code doesn't have spaces between the p element tags, prism cannot render them properly.
+                                    templateRow += `< p >${reversedString}< /p >`;
+                                    
+                                    document.getElementById("results").innerHTML = templateRow;
                                 }
                             </code>
                         </pre>
                     </div>
                     <!-- Code Description -->
                     <div class="col-lg-4">
-                        <p>The Code is structured in one function.</p>
-                        <h5>Print Name</h5>
-                        <p>PrintName consists of three functions that are each responsible for printing one part of a name. firstName is responsible for printing the first name via the fullName parameter. middleName is responsible for printing the middle name via the middle name parameter. lastName is responsible for printing the last name via the lastName parameter.</p>
+                        <h4>The Design:</h4>
+                        <p>To keep the code as clean as possible, the program is encapsulated into three functions:</p>
+                        <ul>
+                            <li><h5>getString</h5></li>
+                            <p>This function acts as the main entry point for the program. It's task is to store the user input into a variable and validate that variable as a string. Once it passes validation it calls the reverseString function passing it the user input and storing the result in a reversedString variable. It then calls displayString and passes the reversedString as it's argument.</p>
+                            <li><h5>reverseString</h5></li>
+                            <p>This function handles the main logic of the program. First, it creates a local variable called reversedString. It assigns this variable the result value of three string method calls from the argument passed into the function. The first method is split(''), which copies each character in the string into an array, making 'reversedString' an array of characters. The second method reverses the order of characters in the new array. The last method converts the array of characters back into a string variable. Lastly, the function returns this final reversedString variable.</p>
+                            <li><h5>displayString</h5></li>
+                            <p>This function has a variable called templateRow which gets a template literal added onto it containing the reversedString argument. It then assigns the 'results' element innerHTML property to this templateRow variable.  </p>
+                        </ul>
                     </div>
                 </div>
             </div>
