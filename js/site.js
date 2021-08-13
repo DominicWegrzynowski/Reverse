@@ -11,9 +11,14 @@ function getString() {
     }
 }
 
-function reverseString(string) {
+function reverseString(userString) {
 
-    const reversedString = string.split('').reverse().join('');
+    let reversedString = [];
+
+    for(let i = userString.length - 1; i >= 0; i--) {
+        reversedString += userString[i];
+    }
+    
     return reversedString;
     
 }

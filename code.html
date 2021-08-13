@@ -62,8 +62,15 @@
         <!--CONTENT-->
         <main class="flex-shrink-0">
             <div class="container my-5 py-4 px-5 mt-5">
-                <h2 class="border-1 border-bottom border-dark secondary-font">The Code For REVERSE:</h2>
-                <div class="row row-cols-1 row-cols-lg-2">
+                <div class="row border-1 border-bottom border-dark pb-3">
+                    <div class="col-6 col-lg-8">
+                        <h1 class="secondary-font pt-4"><strong>REVERSE's Code:</strong></h1>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <img class="" src="/img/reverse.svg" width="100" height="100" alt="reverse logo">
+                    </div>
+                </div>
+                <div class="row row-cols-1 row-cols-lg-2 mt-3">
                     <!-- Code Window -->
                     <div class="col-lg-8">
                         <pre class="line-numbers">
@@ -81,18 +88,23 @@
                                     }
                                 }
                                 
-                                function reverseString(string) {
+                                function reverseString(userString) {
                                 
-                                    const reversedString = string.split('').reverse().join('');
+                                    let reversedString = [];
+                                
+                                    for(let i = userString.length - 1; i >= 0; i--) {
+                                        reversedString += userString[i];
+                                    }
+                                
                                     return reversedString;
-
+                                    
                                 }
                                 
                                 function displayString(reversedString) {
                                 
                                     let templateRow = "";
-                                    //note: the actual source code doesn't have spaces between the p element tags, prism cannot render them properly.
-                                    templateRow += `< p >${reversedString}< /p >`;
+                                    //note: html tags do not work well with prismjs, so I put spaces between them.
+                                    templateRow += `< p >${reversedString}< p />`;
                                     
                                     document.getElementById("results").innerHTML = templateRow;
                                 }
@@ -101,15 +113,15 @@
                     </div>
                     <!-- Code Description -->
                     <div class="col-lg-4">
-                        <h4>The Design:</h4>
+                        <h4 class="text-center"><strong>The Design:</strong></h4>
                         <p>To keep the code as clean as possible, the program is encapsulated into three functions:</p>
                         <ul>
                             <li><h5>getString</h5></li>
                             <p>This function acts as the main entry point for the program. It's task is to store the user input into a variable and validate that variable as a string. Once it passes validation it calls the reverseString function passing it the user input and storing the result in a reversedString variable. It then calls displayString and passes the reversedString as it's argument.</p>
                             <li><h5>reverseString</h5></li>
-                            <p>This function handles the main logic of the program. First, it creates a local variable called reversedString. It assigns this variable the result value of three string method calls from the argument passed into the function. The first method is split(''), which copies each character in the string into an array, making 'reversedString' an array of characters. The second method reverses the order of characters in the new array. The last method converts the array of characters back into a string variable. Lastly, the function returns this final reversedString variable.</p>
+                            <p>This function handles the main logic of the program. First, it creates a local array variable called reversedString. Next, there is a for loop starting at the length of the userString - 1 and decrementing by 1 until i goes below 0. Within this loop, the current character of the userString(going from last to first every iteration) is added to the reversedString array. Once the loop is finished the function returns the final reversedString variable.</p>
                             <li><h5>displayString</h5></li>
-                            <p>This function has a variable called templateRow which gets a template literal added onto it containing the reversedString argument. It then assigns the 'results' element innerHTML property to this templateRow variable.  </p>
+                            <p>This function has a variable called templateRow which gets a template literal added onto it containing the reversedString argument. It then assigns the 'results' element innerHTML property to this templateRow variable.</p>
                         </ul>
                     </div>
                 </div>
